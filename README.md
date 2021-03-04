@@ -6,7 +6,7 @@
 | Column      | Type   | Options     |
 | ----------- | ------ | ----------- |
 | nickname    | string | null: false |
-| email       | string | null: false ,default|
+| email       | string | null: false ,unique:true|
 | encrypted_password   | string | null: false |
 | first_name  | string | null: false |
 | family_name | string | null: false |
@@ -31,14 +31,13 @@
 | prefectures_id      | integer    | null: false |
 | preparation_days_id | integer    | null: false |
 | value               | integar    | null: false |
-| user                | references | null: false | 
+| user                | references | foreign_key: true |
 
 
 ### Association
 
 - belongs_to :user
 - has_one :item_purchase
-- has_many :subscribers
 - belongs_to :seller, class_name: "User"
 
 
