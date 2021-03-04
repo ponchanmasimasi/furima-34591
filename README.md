@@ -6,7 +6,7 @@
 | Column      | Type   | Options     |
 | ----------- | ------ | ----------- |
 | nickname    | string | null: false |
-| email       | devise | null: false |
+| email       | string | null: false ,default|
 | encrypted_password   | string | null: false |
 | first_name  | string | null: false |
 | family_name | string | null: false |
@@ -18,18 +18,18 @@
 
 - has_many :items
 - has_many :item_purchases
-- has_many :subscribers
+
 
 ## items テーブル
 | Column              | Type       | Options     |
 | ------------------- | ---------- | ----------- |
 | name                | string     | null: false |
 | explanation         | text       | null: false |
-| category       _id     | integer    | null: false |
-| condition      _id    | integer    | null: false |
-| postage_type   _id     | integer    | null: false |
-| prefectures    _id    | integer    | null: false |
-| preparation_days  _id  | integer    | null: false |
+| category_id         | integer    | null: false |
+| condition_id        | integer    | null: false |
+| postage_type_id     | integer    | null: false |
+| prefectures_id      | integer    | null: false |
+| preparation_days_id | integer    | null: false |
 | value               | integar    | null: false |
 | user                | references | null: false | 
 
@@ -53,7 +53,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :subscriber
+- has_one :subscriber
 
 
 
@@ -63,7 +63,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefectures _id  | integer    | null: false |
+| prefectures_id  | integer    | null: false |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
 | building_name | string     |                                |
@@ -72,4 +72,4 @@
 
 ### Association
 
-- has_one :item_purchase
+- belongs_to :item_purchase
