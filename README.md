@@ -6,8 +6,8 @@
 | Column      | Type   | Options     |
 | ----------- | ------ | ----------- |
 | nickname    | string | null: false |
-| email       | string | null: false |
-| password    | string | null: false |
+| email       | devise | null: false |
+| encrypted_password   | string | null: false |
 | first_name  | string | null: false |
 | family_name | string | null: false |
 | read_first  | string | null: false |
@@ -23,14 +23,13 @@
 ## items テーブル
 | Column              | Type       | Options     |
 | ------------------- | ---------- | ----------- |
-| photo               | text       | null: false |
 | name                | string     | null: false |
 | explanation         | text       | null: false |
-| category            | integer    | null: false |
-| condition           | integer    | null: false |
-| postage_type        | integer    | null: false |
-| prefectures         | integer    | null: false |
-| preparation_days    | integer    | null: false |
+| category       _id     | integer    | null: false |
+| condition      _id    | integer    | null: false |
+| postage_type   _id     | integer    | null: false |
+| prefectures    _id    | integer    | null: false |
+| preparation_days  _id  | integer    | null: false |
 | value               | integar    | null: false |
 | user                | references | null: false | 
 
@@ -46,9 +45,9 @@
 ## item_purchases テーブル
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
-| item      | integer | null: false, foreign_key: true |
-| user          | integer | null: false, foreign_key: true |
-| purchase_info| integer | null: false, foreign_key: true |
+| item      | references |  foreign_key: true |
+| user          | references | foreign_key: true |
+
 
 ### Association
 
@@ -64,7 +63,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefectures   | integer    | null: false, foreign_key: true |
+| prefectures _id  | integer    | null: false |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
 | building_name | string     |                                |
