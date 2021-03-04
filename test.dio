@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-03-03T23:03:41.026Z" agent="5.0 (Macintosh; Intel Mac OS X 11_2_2) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="51kdCDqODPb6b7dsGzgw" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-03-04T09:42:01.907Z" agent="5.0 (Macintosh; Intel Mac OS X 11_2_2) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="oTMTdvXDeQZEv7sUUVxt" version="14.2.4" type="embed">
     <diagram id="REbeb_qtYwe-IvtOdeYX" name="ページ1">
-        <mxGraphModel dx="1138" dy="396" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1056" dy="403" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -24,7 +24,7 @@
                 <mxCell id="33" value="- photo&#10;- name&#10;- explanalion&#10;- category&#10;- condition&#10;- postage_type&#10;- preparation_days&#10;- value&#10;- user&#10;- e-mail&#10;- password&#10;- faist_name&#10;- familly_name&#10;- フリガナ（read_first)&#10;- フリガナ（read_family)&#10;- birth&#10;&#10;-&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="32" vertex="1">
                     <mxGeometry y="26" width="150" height="134" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="35">
+                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;" parent="1" source="35" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-250" y="180" as="targetPoint"/>
                     </mxGeometry>

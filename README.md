@@ -38,7 +38,7 @@
 
 - belongs_to :user
 - has_one :item_purchase
-- belongs_to :seller, class_name: "User"
+
 
 
 ## item_purchases テーブル
