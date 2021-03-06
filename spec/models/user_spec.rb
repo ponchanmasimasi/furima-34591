@@ -8,7 +8,6 @@ RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
       it '全ての項目の入力が存在すれば登録できること' do
-        
         expect(@user).to be_valid
       end
     end
@@ -33,8 +32,6 @@ RSpec.describe User, type: :model do
         another_user.valid?
         expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
-
-      
 
       it 'emailは@が含まれていないと登録できない' do
         @user.email = 'test.example'
@@ -64,24 +61,17 @@ RSpec.describe User, type: :model do
       it 'passwordが半角英数字混合でなければ登録できない' do
         @user.password = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
 
       it 'passwordが半角数字のみだと登録できない' do
         @user.password = '111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
 
       it 'passwordが全角であれば登録できない' do
         @user.password = 'ああああああ'
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
-      end
-
-      it 'passwordは英語のみでは登録できない' do
-        @user.password = 'aaaaaa'
-        @user.password_confirmation = 'aaaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
@@ -130,6 +120,12 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Read first is invalid')
       end
 
+      it 'read_firstはカタカナ以外の全角文字だと登録できないこと' do
+        @user.read_first = 'ああああああ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Read first is invalid')
+      end
+
       it 'read_familyは空だと登録できないこと' do
         @user.read_family = ''
         @user.valid?
@@ -138,6 +134,12 @@ RSpec.describe User, type: :model do
 
       it 'read_familyは半角では登録できないこと' do
         @user.read_first = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Read first is invalid')
+      end
+
+      it 'read_familyはカタカナ以外の全角文字だと登録できないこと' do
+        @user.read_first = 'ああああああ'
         @user.valid?
         expect(@user.errors.full_messages).to include('Read first is invalid')
       end
