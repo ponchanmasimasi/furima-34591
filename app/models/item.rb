@@ -20,5 +20,5 @@ class Item < ApplicationRecord
     validates :preparation_day_id
   end
 
-    validates :value, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 999999, message: "is invalid"}
+    validates :value, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
 end
