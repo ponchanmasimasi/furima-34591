@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item do
-
     name              { '商品名' }
     explanation       { '説明文' }
     category_id       { 1 }
@@ -8,7 +7,7 @@ FactoryBot.define do
     postage_type_id   { 2 }
     prefecture_id     { 33 }
     preparation_day_id { 2 }
-    value              {777} 
+    value              { 777 }
 
     association :user
 

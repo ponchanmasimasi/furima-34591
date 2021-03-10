@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2021_03_08_002634) do
     t.text "explanation", null: false
     t.integer "category_id", null: false
     t.integer "condition_id", null: false
-    t.integer "postage_type_id", null: false
+    t.integer "postage_id", null: false
     t.integer "prefecture_id", null: false
-    t.integer "preparation_day_id", null: false
+    t.integer "preparation_id", null: false
     t.integer "value", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_002634) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -70,25 +70,25 @@ RSpec.describe Item, type: :model do
       it '販売価格が全角数字だと保存できないこと' do
         @item.value = '２０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Value is invalid")
+        expect(@item.errors.full_messages).to include('Value is invalid')
       end
 
       it '販売価格が全角及び半角英数字の混合だと保存できないこと' do
         @item.value = '２０aa'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Value is invalid")
+        expect(@item.errors.full_messages).to include('Value is invalid')
       end
 
       it '販売価格が299円未満では保存できないこと' do
         @item.value = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Value is invalid")
+        expect(@item.errors.full_messages).to include('Value is invalid')
       end
 
       it '販売価格が1,000,000円を超過すると保存できないこと' do
         @item.value = 1_000_001
         @item.valid?
-        expect(@item.errors.full_messages).to include("Value is invalid")
+        expect(@item.errors.full_messages).to include('Value is invalid')
       end
     end
   end
