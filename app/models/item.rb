@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :prefecture
   belongs_to :preparation
-  belongs_to :name
+ 
   
 
 
