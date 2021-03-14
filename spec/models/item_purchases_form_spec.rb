@@ -8,7 +8,7 @@ RSpec.describe ItemPurchasesForm, type: :model do
     sleep(0.1)
   end
   describe '配送先情報' do
-    content '配送先情報の保存ができるとき' do
+    context '配送先情報の保存ができるとき' do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@subscriber).to be_valid
       end
@@ -22,7 +22,7 @@ RSpec.describe ItemPurchasesForm, type: :model do
         expect(@subscriber).to be_valid
       end
     end
-    content '配送先情報の保存ができないとき' do
+    context '配送先情報の保存ができないとき' do
       it '郵便番号が空だと保存できないこと' do
         @subscriber.postal_code = ''
         @subscriber.valid?
@@ -50,7 +50,7 @@ RSpec.describe ItemPurchasesForm, type: :model do
       it '番地が空だと保存できないこと' do
         @subscriber.address = ''
         @subscriber.valid?
-        expect(@subscriber.errors.full_messages).to include("City can't be blank")
+        expect(@subscriber.errors.full_messages).to include("Address can't be blank")
       end
 
 
