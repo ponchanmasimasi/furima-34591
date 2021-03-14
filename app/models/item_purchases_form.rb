@@ -18,9 +18,8 @@ class ItemPurchasesForm
   end
 
   def save
-    
     item_purchases = ItemPurchase.create(item_id: item_id, user_id: user_id)
-    
+
     Subscriber.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, phone_number: phone_number,
                       building_name: building_name, address: address, item_purchase_id: item_purchases.id)
   end

@@ -1,15 +1,13 @@
 class ItemPurchasesController < ApplicationController
-  before_action :set_item, only: [:index,  :create]
+  before_action :set_item, only: [:index, :create]
   before_action :authenticate_user!
   before_action :contributor_confirmation
 
   def index
-    
     @subscriber = ItemPurchasesForm.new
   end
 
   def create
-   
     @subscriber = ItemPurchasesForm.new(subscriber_params)
     if @subscriber.valid?
       pay_item
@@ -30,21 +28,18 @@ class ItemPurchasesController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
-    
   end
 
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: @item.value,  
-      card: subscriber_params[:token], 
-      currency: 'jpy'                 
+      amount: @item.value,
+      card: subscriber_params[:token],
+      currency: 'jpy'
     )
   end
+
   def contributor_confirmation
-    
-    
-    redirect_to root_path if current_user == @item.user || @item.item_purchase.present? 
-  
+    redirect_to root_path if current_user == @item.user || @item.item_purchase.present?
   end
 end
