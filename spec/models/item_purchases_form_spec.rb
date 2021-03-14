@@ -47,6 +47,13 @@ RSpec.describe ItemPurchasesForm, type: :model do
         expect(@subscriber.errors.full_messages).to include("City can't be blank")
       end
 
+      it '番地が空だと保存できないこと' do
+        @subscriber.address = ''
+        @subscriber.valid?
+        expect(@subscriber.errors.full_messages).to include("City can't be blank")
+      end
+
+
       it '電話番号が空だと保存できないこと' do
         @subscriber.phone_number = ''
         @subscriber.valid?
