@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
-  #has_one :item_purchase
+  has_one :item_purchase
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -9,9 +9,6 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :prefecture
   belongs_to :preparation
- 
-  
-
 
   with_options presence: true do
     validates :name
