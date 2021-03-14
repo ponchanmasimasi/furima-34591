@@ -13,6 +13,15 @@ RSpec.describe ItemPurchasesForm, type: :model do
       expect(@subscriber).to be_valid
     end
 
+    it 'tokenがあれば保存ができること' do
+      expect(@subscriber).to be_valid
+    end
+
+    it '建物名は空でも保存できること' do
+      @subscriber.building_name = ''
+      expect(@subscriber).to be_valid
+    end
+
     it '郵便番号が空だと保存できないこと' do
       @subscriber.postal_code = ''
       @subscriber.valid?
@@ -35,12 +44,7 @@ RSpec.describe ItemPurchasesForm, type: :model do
       @subscriber.city = ''
       @subscriber.valid?
       expect(@subscriber.errors.full_messages).to include("City can't be blank")
-    end
-
-    it '建物名は空でも保存できること' do
-      @subscriber.building_name = ''
-      expect(@subscriber).to be_valid
-    end
+    end 
 
     it '電話番号が空だと保存できないこと' do
       @subscriber.phone_number = ''
@@ -49,14 +53,16 @@ RSpec.describe ItemPurchasesForm, type: :model do
     end
 
     it '電話番号が11桁以内でないと保存できないこと' do
-      @subscriber.phone_number = '123456'
+      @subscriber.phone_number = '123456999999'
       @subscriber.valid?
       expect(@subscriber.errors.full_messages).to include('Phone number is invalid')
     end
 
-    it 'tokenがあれば保存ができること' do
-      expect(@subscriber).to be_valid
-    end
+    it '電話番号は英数混合では登録きないこと' do
+      @subscriber.phone_number = '1234569999aa'
+      @subscriber.valid?
+      expect(@subscriber.errors.full_messages).to include('Phone number is invalid')
+    end  
 
     it 'tokenが空では登録できないこと' do
       @subscriber.token = nil
