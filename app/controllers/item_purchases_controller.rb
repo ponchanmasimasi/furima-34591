@@ -4,12 +4,12 @@ class ItemPurchasesController < ApplicationController
   before_action :contributor_confirmation
 
   def index
-    @item = Item.find(params[:item_id])
+    
     @subscriber = ItemPurchasesForm.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
+   
     @subscriber = ItemPurchasesForm.new(subscriber_params)
     if @subscriber.valid?
       pay_item
