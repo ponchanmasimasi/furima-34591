@@ -17,10 +17,9 @@ class ItemPurchasesForm
   end
 
   def save
-    # 配送先の情報を保存し、変数item_purchasesに代入する
+    
     item_purchases = ItemPurchase.create(item_id: item_id, user_id: user_id)
-    # 住所を保存する
-    # item_purchases_idには、変数item_purchasesのidと指定する
+    
     Subscriber.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, phone_number: phone_number,
                       building_name: building_name, address: address, item_purchase_id: item_purchases.id)
   end

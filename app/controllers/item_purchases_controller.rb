@@ -1,4 +1,8 @@
 class ItemPurchasesController < ApplicationController
+  before_action :set_item, only: [:index,  :create]
+  before_action :authenticate_user!, except: [:show]
+  before_action :contributor_confirmation
+
   def index
     @item = Item.find(params[:item_id])
     @subscriber = ItemPurchasesForm.new
@@ -24,12 +28,23 @@ class ItemPurchasesController < ApplicationController
     )
   end
 
+  def set_item
+    @item = Item.find(params[:item_id])
+    
+  end
+
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: @item.value,  # 商品の値段
-      card: subscriber_params[:token], # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      amount: @item.value,  
+      card: subscriber_params[:token], 
+      currency: 'jpy'                 
     )
+  end
+  def contributor_confirmation
+    
+    
+    redirect_to root_path if current_user == @item.user || @item.item_purchase.present? 
+  
   end
 end

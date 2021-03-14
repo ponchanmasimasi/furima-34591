@@ -65,3 +65,4 @@ RSpec.describe ItemPurchasesForm, type: :model do
     end
   end
 end
+
