@@ -1,6 +1,6 @@
 class ItemPurchasesController < ApplicationController
   before_action :set_item, only: [:index,  :create]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!
   before_action :contributor_confirmation
 
   def index
