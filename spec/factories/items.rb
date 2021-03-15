@@ -4,9 +4,9 @@ FactoryBot.define do
     explanation       { '説明文' }
     category_id       { 1 }
     condition_id      { 3 }
-    postage_type_id   { 2 }
-    prefecture_id     { 33 }
-    preparation_day_id { 2 }
+    postage_id { 2 }
+    prefecture_id { 33 }
+    preparation_id { 2 }
     value              { 777 }
 
     association :user
